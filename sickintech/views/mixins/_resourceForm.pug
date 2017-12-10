@@ -1,0 +1,19 @@
+mixin resourceForm(resource = {})
+  form(action=`/add/${resource._id || ''}` method="POST")
+    label(for="title") Title
+    input(type="text" name="title" value=resource.title)
+    
+    label(for="link") Link
+    input(type="text" name="link" value=resource.link)
+
+    label(for="description") Description
+    textarea(name="description")= resource.description
+
+    - const choices = ['Article', 'Podcast', 'Video', 'Other']
+    - const categories = resource.category || ''
+    ul
+      each choice in choices
+        input(type="radio" id=choice value=choice name="category" checked=(categories.includes(choice)))
+        label(for=choice)= choice
+
+    input(type="submit" value="Add Resource" class="button")
