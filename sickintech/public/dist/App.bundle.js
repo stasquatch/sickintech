@@ -73,6 +73,14 @@
 "use strict";
 
 
+__webpack_require__(1);
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
 /***/ })
 /******/ ]);
 //# sourceMappingURL=App.bundle.js.map
