@@ -5,10 +5,26 @@ html
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css", integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb", crossorigin="anonymous")
     link(rel='stylesheet', href='/dist/style.css')
   body
-    .container-fluid
-      .row
-        .sidebar.col-md-4.col-lg-3
-          a(href="/")
-            img.logo(src="./images/sickintech-logo-color.png" alt="Sick in Tech logo")
-        .content.col-md-8.col-lg-9
-          block content
+    .sidebar
+      a.home-link(href="/")
+        img.logo(src="./images/sickintech-logo-color.png" alt="Sick in Tech logo")
+        h1.site-title= title
+      nav
+        ul.nav.flex-column
+          li.nav-item
+            a.nav-link(href="/about") About
+          li.nav-item
+            a.nav-link(href="/add") Add a Resource
+          li.nav-item
+            a.nav-link(href="/contact") Contact
+      .nav-footer
+        ul.nav.justify-content-center
+          li.nav-item
+            a.nav-link(href="/login") Login
+          li.nav-item
+            a.nav-link(href="/register") Register
+    .body-content
+      .container-fluid
+        .row
+          .content.col-md-6
+            block content

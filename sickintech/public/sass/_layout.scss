@@ -1,3 +1,39 @@
+@import '_variables';
+
+$sidebar-width: 300px;
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font: 14px 'Barlow Semi Condensed', sans-serif;
+  font: 20px 'Barlow Semi Condensed', sans-serif;
+  
+  p {
+    line-height: 140%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: $sidebar-width;
+    margin-left: -$sidebar-width;
+    z-index: 1000;
+    width: $sidebar-width;
+    background: $darkgray;
+    height: 100%;
+    color: $white;
+  }
+
+  .body-content {
+    position: absolute;
+    left: $sidebar-width;
+    border-top: 10px solid $green;
+    padding: 30px;
+  }
 }

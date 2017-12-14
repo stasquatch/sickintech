@@ -1,3 +1,51 @@
-.logo {
-  width:75px;
+@import './_variables.scss';
+
+@media screen and (min-width: 768px) {  
+  .sidebar {
+    padding: 25px;
+    
+    a,
+    a:visited,
+    a:active,
+    a:hover,
+    a:focus {
+      text-decoration: none;
+    }
+  }
+
+  .logo {
+    width: 75px;
+    margin: 0 auto 0 auto;
+  }
+
+  h1.site-title {
+    color: $white;
+  }
+
+  .nav {
+    font-size: 18px;
+    margin-top: 50px;
+    
+    a,
+    a:visited {
+      color: $white;
+    }
+
+    a:hover,
+    a:active,
+    a:focus {
+      color: $green;
+    }
+
+    a.nav-link {
+      padding-left: 0;
+    }
+  }
+
+  .nav-footer {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+  }
 }
