@@ -3,10 +3,7 @@ var router = express.Router();
 const resourceController = require('../controllers/resourceController');
 const { catchErrors } = require('../handlers/errorHandlers');
 
-router.get('/', (req, res) => {
-  res.render('index', { title: 'Sick in Tech' });
-});
-
+router.get('/', catchErrors(resourceController.getResources));
 router.get('/add', resourceController.addResource);
 router.post('/add', catchErrors(resourceController.createResource));
 router.get('/resource/:slug', catchErrors(resourceController.getResourceBySlug));

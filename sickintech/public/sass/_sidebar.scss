@@ -49,3 +49,16 @@
     width: 100%;
   }
 }
+
+.sidebar {
+  .about {
+    p {
+      font-size: 17px;
+      color: $lightgray;
+    }
+  }
+}
+
+.nav-active {
+  font-weight: bold;
+}

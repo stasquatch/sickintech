@@ -1,19 +1,22 @@
 mixin resourceForm(resource = {})
   form(action=`/add/${resource._id || ''}` method="POST")
-    label(for="title") Title
-    input(type="text" name="title" value=resource.title)
-    
-    label(for="link") Link
-    input(type="text" name="link" value=resource.link)
+    .form-group
+      label(for="title") Title
+      input.form-control(type="text" name="title" value=resource.title)
+    .form-group
+      label(for="link") Link
+      input.form-control(type="text" name="link" value=resource.link)
+    .form-group
+      label(for="description") Description
+      textarea.form-control(name="description")= resource.description
 
-    label(for="description") Description
-    textarea(name="description")= resource.description
-
-    - const choices = ['Article', 'Podcast', 'Video', 'Other']
+    - const choices = ['Article', 'Book', 'Social Media', 'Podcast', 'Video', 'Other']
     - const categories = resource.category || ''
-    ul
+    .form-group
       each choice in choices
-        input(type="radio" id=choice value=choice name="category" checked=(categories.includes(choice)))
-        label(for=choice)= choice
+        .form-check
+          label.form-check-label(for=choice)
+            input.form-check-input(type="radio" id=choice value=choice name="category" checked=(categories.includes(choice)))
+            span= choice
 
     input(type="submit" value="Add Resource" class="button")

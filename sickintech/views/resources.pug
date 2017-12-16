@@ -1,4 +1,19 @@
 extends layout
 
 block content
-  pre=h.dump(resources)
+  h2= title
+  table.table.table-striped.table-bordered.table-hover
+    thead
+      tr
+        th(scope="col") Title
+        th(scope="col") Category
+        th(scope="col") Description
+        th(scope="col") Link
+    tbody
+      each resource in resources
+        tr
+          td= resource.title
+          td= resource.category.join(', ')
+          td= resource.description
+          td
+            a.btn.btn-green(href=resource.link) Go
