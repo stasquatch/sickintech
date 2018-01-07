@@ -1,12 +1,1 @@
 @import './_variables.scss';
-
-.btn-green {
-  background: $green;
-  color: $darkgray;
-  font-weight: bold;
-
-  &:hover {
-    background: lighten($green, 12%);
-    color: $darkgray;
-  }
-}

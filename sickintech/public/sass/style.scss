@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed');
-@import './_variables.scss';
-@import './_layout.scss';
-@import './_sidebar.scss';
-@import './_elements.scss';
+@import 'variables';
+@import "bootstrap";
+@import 'layout';
+@import 'sidebar';
+@import 'elements';
