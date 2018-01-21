@@ -6,6 +6,7 @@ exports.addResource = (req, res) => {
 };
 
 exports.createResource = async (req, res) => {
+  req.body.user = req.user._id;
   const resource = await (new Resource(req.body)).save();
   req.flash('success', `Successfully created ${resource.title}!`);
   res.redirect(`/resource/${resource.slug}`);

@@ -23,12 +23,29 @@ html
             a.nav-link(href="/contact", class=(currentPath.startsWith('/contact') ? 'nav-active' : '')) Contact
       .nav-footer
         ul.nav.justify-content-center
-          li.nav-item
-            a.nav-link(href="/login") Login
-          li.nav-item
-            a.nav-link(href="/register") Register
+          if user
+            li.nav-item
+              a.nav-link(href="/account") Account
+            li.nav-item
+              a.nav-link(href="/logout") Logout
+          else
+            li.nav-item
+              a.nav-link(href="/login") Login
+            li.nav-item
+              a.nav-link(href="/register") Register
     .body-content
       .container-fluid
+        .row
+          block messages
+            if locals.flashes
+              .inner.inner--flashes
+                .flash-messages
+                  - const categories = Object.keys(locals.flashes)
+                  each category in categories
+                    each message in flashes[category]
+                      .flash(class=`flash--${category}`)
+                        p.flash__text!= message
+                        button.flash__remove(onClick="this.parentElement.remove()") &times;
         .row
           .content.col-lg-6
             block content

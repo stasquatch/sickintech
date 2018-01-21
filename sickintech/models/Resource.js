@@ -22,6 +22,11 @@ const resourceSchema = new mongoose.Schema({
   created: {
     type: Date,
     default: Date.now
+  },
+  author: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+    required: 'You must supply an author!'
   }
 });
 
@@ -32,17 +37,17 @@ resourceSchema.index({
   description: 'text'
 });
 
-// resourceSchema.pre('save', async function(next) {
-//   if (!this.isModified('title')) {
-//     return next();
-//   }
-//   this.slug = slug(this.title);
-//   const slugRegEx = new RegExp(`^(${this.slug})((-[0-9]*)?)$`, 'i');
-//   const resourcesWithSlug = await this.constructor.find({ slug: slugRegEx });
-//   if (resourcesWithSlug.length) {
-//     this.slug = `${this.slug}-${resourcesWithSlug.length + 1}`;
-//   }
-//   next();
-// });
+resourceSchema.pre('save', async function(next) {
+  if (!this.isModified('title')) {
+    return next();
+  }
+  this.slug = slug(this.title);
+  const slugRegEx = new RegExp(`^(${this.slug})((-[0-9]*)?)$`, 'i');
+  const resourcesWithSlug = await this.constructor.find({ slug: slugRegEx });
+  if (resourcesWithSlug.length) {
+    this.slug = `${this.slug}-${resourcesWithSlug.length + 1}`;
+  }
+  next();
+});
 
 module.exports = mongoose.model('Resource', resourceSchema);

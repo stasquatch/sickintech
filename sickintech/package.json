@@ -6,9 +6,12 @@
     "node": ">= 7.6.0"
   },
   "scripts": {
+    "debug": "node --nolazy --inspect-brk=9229 start.js",    
     "prod": "node ./start.js",
-    "watch": "nodemon ./start.js --ignore public/",
+    "watch": "nodemon --inspect ./start.js --ignore public/",
+    "watch:debug": "nodemon --inspect-brk=9229 ./start.js --ignore public/",
     "start": "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
+    "start:debug": "concurrently \"npm run watch:debug\" \"npm run assets\" --names \"💻,📦\" --prefix name",
     "assets": "webpack -w --display-max-modules 0",
     "now": "now -e DB_USER=@db_user -e DB_PASS=@db_pass -e NODE_ENV=\"production\" -e PORT=80"
   },
