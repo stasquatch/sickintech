@@ -6,6 +6,7 @@ Resources for accessibility and visibility for invisible illnesses in tech.
 * ExpressJS + NodeJS
 * Pug
 * Webpack
-* e2e testing with Mocha
+* Mocha (testing) + Docker
 
-_In progress_
+## running tests
+In order to run unit tests, you'll need to spin up a docker container `docker-compose up` before running the `npm test` command.

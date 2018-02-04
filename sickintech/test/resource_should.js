@@ -2,6 +2,7 @@ const User = require('../models/User');
 const Resource = require('../models/Resource');
 const mongoose = require('mongoose');
 const expect = require('chai').expect;
+const utils = require('./utils');
 
 describe('Resource', () => {
     it('should create a valid resource', (done) => {
@@ -15,7 +16,7 @@ describe('Resource', () => {
             author: user._id
         });
 
-        var errors = resource.validateSync();
+        var errors = resource.validate();
         expect(errors).to.not.exist;
         done();
     });

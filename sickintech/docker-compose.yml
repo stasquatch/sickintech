@@ -1,0 +1,7 @@
+version: '3.3'
+
+services:
+  mongo:
+    image: mongo:3.7.1-jessie
+    ports:
+      - "27017:27017"

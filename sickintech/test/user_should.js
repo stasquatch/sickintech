@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const expect = require('chai').expect;
 const validator = require ('validator');
+const utils = require('./utils');
 
 describe('User', function() {
     it('should have valid email', (done) => {
