@@ -18,6 +18,7 @@ const userSchema = new Schema({
     type: String,
     unique: true,
     trim: true,
+    validate: [validator.isAlphanumeric, 'Please only alphanumeric characters.'],
     required: 'Please provide a username'
   }
 });

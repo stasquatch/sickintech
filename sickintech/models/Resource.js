@@ -37,7 +37,7 @@ resourceSchema.index({
   description: 'text'
 });
 
-resourceSchema.pre('save', async function(next) {
+resourceSchema.pre('validate', async function(next) {
   if (!this.isModified('title')) {
     return next();
   }

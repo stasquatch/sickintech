@@ -6,5 +6,6 @@ Resources for accessibility and visibility for invisible illnesses in tech.
 * ExpressJS + NodeJS
 * Pug
 * Webpack
+* e2e testing with Mocha
 
 _In progress_
