@@ -48,6 +48,36 @@ describe('Resource', () => {
         done();
     });
 
+    it('should error on empty link', (done) => {
+        var user = new User({ username: 'testuser', email: 'test@email.com' });
+        user.save();
+        var resource = new Resource({
+            description: 'desc',
+            title: 'test',
+            category: ['test'],
+            author: user._id
+        });
+
+        var errors = resource.validateSync();
+        expect(errors.errors.link).to.exist;
+        done();
+    });
+
+    it('should create a slug', (done) => {
+        var user = new User({ username: 'testuser', email: 'test@email.com' });
+        user.save();
+        var resource = new Resource({ 
+            title: 'title With lots of @#$ stuff',
+            description: 'desc',
+            link: 'http://link.com',
+            category: ['Test Resource'],
+            author: user._id
+        });
+        resource.validate();
+        expect(resource.slug).to.equal('title-with-lots-of--stuff');
+        done();
+    });
+
     // it('should create unique slug', (done) => {
     //     var user = new User({ username: 'testuser', email: 'test@email.com' });
     //     user.save();
