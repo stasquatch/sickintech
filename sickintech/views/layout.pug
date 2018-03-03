@@ -15,8 +15,9 @@ html
         ul.nav.flex-column
           li.nav-item
             a.nav-link(href="/resources", class=(currentPath.startsWith('/resources') ? 'nav-active' : '')) Resources
-          li.nav-item
-            a.nav-link(href="/add", class=(currentPath.startsWith('/add') ? 'nav-active' : '')) Add a Resource
+          if user
+            li.nav-item
+              a.nav-link(href="/add", class=(currentPath.startsWith('/add') ? 'nav-active' : '')) Add a Resource
           li.nav-item
             a.nav-link(href="/about", class=(currentPath.startsWith('/about') ? 'nav-active' : '')) About
           li.nav-item
