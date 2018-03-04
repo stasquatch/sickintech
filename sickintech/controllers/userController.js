@@ -17,7 +17,7 @@ exports.validateRegister = (req, res, next) => {
   req.sanitizeBody('email').normalizeEmail({
     gmail_remove_dots: false,
     remove_extension: false,
-    gmail_rmove_subaddress: false
+    gmail_remove_subaddress: false
   });
   req.checkBody('password', 'Password cannot be blank!').notEmpty();
   req.checkBody('password-confirm', 'Confirmed password cannot be blank!').notEmpty();
