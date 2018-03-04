@@ -37,7 +37,7 @@ describe('Resource', () => {
     it('should error on empty title', (done) => {
         var user = new User({ username: 'testuser', email: 'test@email.com' });
         user.save();
-        var resource = new Resource({
+         var resource = new Resource({
             description: 'desc',
             link: 'http://link.com',
             category: ['test'],
