@@ -17,3 +17,5 @@ block content
           td= resource.description
           td
             a.btn.btn-primary(href=resource.link) Go
+            if resource.author && user && resource.author.equals(user._id)
+              a.btn.btn-primary(href=`/resource/${resource.slug}/edit`) Edit

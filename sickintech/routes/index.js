@@ -9,8 +9,10 @@ const { catchErrors } = require('../handlers/errorHandlers');
 router.get('/', catchErrors(resourceController.getResources));
 router.get('/add', authController.isLoggedIn, resourceController.addResource);
 router.post('/add', catchErrors(resourceController.createResource));
+router.post('/add/:slug', catchErrors(resourceController.updateResource));
 router.get('/resource/:slug', catchErrors(resourceController.getResourceBySlug));
 router.get('/resources', catchErrors(resourceController.getResources));
+router.get('/resource/:slug/edit', catchErrors(resourceController.editResource));
 
 router.get('/about', function(req, res) {
   res.render('about', { title: 'About Sick in Tech' });

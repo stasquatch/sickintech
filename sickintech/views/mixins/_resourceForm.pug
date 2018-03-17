@@ -1,5 +1,5 @@
 mixin resourceForm(resource = {})
-  form(action=`/add/${resource._id || ''}` method="POST")
+  form(action=`/add/${resource.slug || ''}` method="POST")
     .form-group
       label(for="title") Title
       input.form-control(type="text" name="title" value=resource.title)
@@ -19,4 +19,4 @@ mixin resourceForm(resource = {})
             input.form-check-input(type="radio" id=choice value=choice name="category" checked=(categories.includes(choice)))
             span= choice
 
-    input(type="submit" value="Add Resource" class="button")
+    input(type="submit" value=title class="button")
