@@ -8,4 +8,12 @@ mixin loginForm()
       label(for="password") Password
       input.form-control(type="password" name="password")
     .form-group
-      button.btn.btn-green(type="submit" value="Log In") Log In
+      button.btn.btn-primary(type="submit" value="Log In") Log In
+  
+  h3 Reset Password
+  form.form(action='/account/forgot' method='POST')
+    .form-group
+      label(for="email") Email
+      input.form-control(type="email" name="email")
+    .form-group
+      input.btn.btn-secondary(type='submit' value='Send a Reset Link to My Email')

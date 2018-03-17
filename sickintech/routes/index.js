@@ -21,6 +21,10 @@ router.get('/contact', function(req, res) {
   res.render('contact', { title: 'Contact' });
 });
 
+router.get('/account', authController.isLoggedIn, userController.accountInfo);
+router.post('/account/forgot', catchErrors(authController.forgot));
+router.get('/account/reset/:token', catchErrors(authController.reset));
+router.post('/account/reset/:token', authController.confirmedPasswords, catchErrors(authController.update));
 router.get('/login', userController.loginForm);
 router.post('/login', authController.login);
 router.get('/logout', authController.logout);
