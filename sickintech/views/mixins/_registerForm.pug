@@ -1,0 +1,16 @@
+mixin registerForm(attemptedUser = { username: '', email: '' })
+  form.form(action="/register" method="POST")
+    .form-group
+      label(for="username") Username
+      input.form-control(type="text" name="username" value=attemptedUser.username required)
+    .form-group
+      label(for="email") Email
+      input.form-control(type="email" name="email" value=attemptedUser.email required)
+    .form-group
+      label(for="password") Password
+      input.form-control(type="password" name="password" required)
+    .form-group
+      label(for="password-confirm") Confirm Password
+      input.form-control(type="password" name="password-confirm" required)
+    .form-group
+      button.btn.btn-green(type="submit" value="Create Account") Create Account

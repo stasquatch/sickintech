@@ -45,6 +45,6 @@ exports.register = async (req, res, next) => {
   const register = promisify(User.register, User);
   register(user, req.body.password).then(next, error => {
     req.flash("error", error.message);
-    res.render("register", { user });
+    res.render("register", { attemptedUser: user, flashes: req.flash() });
   });
 };
