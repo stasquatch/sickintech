@@ -4914,4 +4914,7 @@ body {
 .nav-active {
   font-weight: bold; }
 
+td .btn, form .btn {
+  margin-right: 8px; }
+
 /*# sourceMappingURL=style.css.map*/

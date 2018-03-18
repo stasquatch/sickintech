@@ -14,5 +14,7 @@ mixin resourceTable(resources = {})
             td= resource.description
             td
               a.btn.btn-primary(href=resource.link) Go
+              if user
+                a.btn.btn-secondary(href=`/resource/${resource.slug}/bookmark`) Bookmark
               if resource.author && user && resource.author.equals(user._id)
-                a.btn.btn-primary(href=`/resource/${resource.slug}/edit`) Edit
+                a.btn.btn-secondary(href=`/resource/${resource.slug}/edit`) Edit

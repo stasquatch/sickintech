@@ -19,4 +19,7 @@ mixin resourceForm(resource = {})
             input.form-check-input(type="radio" id=choice value=choice name="category" checked=(categories.includes(choice)))
             span= choice
 
-    input(type="submit" value=title class="button")
+    input.btn.btn-primary(type="submit" value=title class="button")
+
+    if resource
+      a.btn.btn-danger#DeleteResource(href="#") Delete #{resource.title}
