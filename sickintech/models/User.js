@@ -20,7 +20,13 @@ const userSchema = new Schema({
     trim: true,
     validate: [validator.isAlphanumeric, 'Please only alphanumeric characters.'],
     required: 'Please provide a username'
-  }
+  },
+  created: {
+    type: Date,
+    default: Date.now
+  },
+  resetPasswordToken: String,
+  resetPasswordExpires: Date
 });
 
 userSchema.plugin(passportLocalMongoose, { usernameField: 'username' });

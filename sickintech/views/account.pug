@@ -1,0 +1,16 @@
+extends layout
+
+include mixins/_resourceTable
+
+block content
+  h2= title
+  .user-info
+    p <strong>Username:</strong> #{thisUser.username}
+    p <strong>Email:</strong> #{thisUser.email}
+    p <strong>Member Since:</strong> #{h.moment(thisUser.created).format('MMMM Do YYYY, h:mm:ss a')}
+    //- a.btn.btn-primary(href=`/account/${user._id}/edit`) Edit Account Information
+  .user-resource-info
+    h3 Resources You've Added
+    +resourceTable(userResources)
+    //- h3 Resources You've Favorited
+    //- +resourceTable(userFavResources)
