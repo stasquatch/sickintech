@@ -15,6 +15,10 @@ mixin resourceTable(resources = {})
             td
               a.btn.btn-primary(href=resource.link) Go
               if user
-                a.btn.btn-secondary(href=`/resource/${resource.slug}/bookmark`) Bookmark
+                - const hasBookmarks = user.bookmarks.filter(bm => bm._id == resource._id).length > 0
+                if hasBookmarks
+                  a.btn.btn-secondary(href=`/resource/${resource._id}/bookmark`) Unbookmark
+                else
+                  a.btn.btn-secondary(href=`/resource/${resource._id}/bookmark`) Bookmark
               if resource.author && user && resource.author.equals(user._id)
                 a.btn.btn-secondary(href=`/resource/${resource.slug}/edit`) Edit

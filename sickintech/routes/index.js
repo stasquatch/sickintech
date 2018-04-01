@@ -50,4 +50,10 @@ router.post(
   authController.login
 );
 
+router.get(
+  "/resource/:id/bookmark",
+  authController.isLoggedIn,
+  userController.updateBookmark
+);
+
 module.exports = router;

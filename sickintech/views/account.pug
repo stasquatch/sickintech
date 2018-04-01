@@ -5,12 +5,25 @@ include mixins/_resourceTable
 block content
   h2= title
   .user-info
-    p <strong>Username:</strong> #{thisUser.username}
-    p <strong>Email:</strong> #{thisUser.email}
-    p <strong>Member Since:</strong> #{h.moment(thisUser.created).format('MMMM Do YYYY, h:mm:ss a')}
+    p <strong>Username:</strong> #{user.username}
+    p <strong>Email:</strong> #{user.email}
+    p <strong>Member Since:</strong> #{h.moment(user.created).format('MMMM Do YYYY, h:mm:ss a')}
     //- a.btn.btn-primary(href=`/account/${user._id}/edit`) Edit Account Information
+  
+  br
+  
   .user-resource-info
     h3 Resources You've Added
-    +resourceTable(userResources)
-    //- h3 Resources You've Favorited
-    //- +resourceTable(userFavResources)
+    if userResources.length == 0
+      em Looks like you haven't added anything!
+    else
+      +resourceTable(userResources)
+
+    br
+    br
+
+    h3 Resources You've Bookmarked
+    if user.bookmarks.length == 0
+      em Looks like you haven't bookmarked anything!
+    else
+      +resourceTable(user.bookmarks)
